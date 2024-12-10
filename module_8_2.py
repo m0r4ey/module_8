@@ -15,11 +15,10 @@ def personal_sum(numbers):
 def calculate_average(numbers):
     try:
         total, incorrect = personal_sum(numbers)
-        if len([num for num in numbers if isinstance(num, (int, float))]) == 0:
-            return 0
-        average = total / len([num for num in numbers if isinstance(num, (int, float))])
-        return average
-    except Exception:
+        return total / len([num for num in numbers if isinstance(num, (int, float))])
+    except ZeroDivisionError:
+        return 0
+    except TypeError:
         print('В numbers записан некорректный тип данных')
 
 
